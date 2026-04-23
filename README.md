@@ -1,1 +1,1 @@
-Repositório criado para realizaçõ dos Exercícios de Linux.
+Repositório criado para realização dos Exercícios de Linux.
