@@ -1,0 +1,33 @@
+    1  sudo dnf install git -y
+    2  git --version
+    3  git config --global user.name "sSofia-s"
+    4  git config --global user.email ssofiasiq@gmail.com
+    5  git clone https://github.com/sSofia-s/DevOps-Linux.git
+    6  rm DevOps-Linux/
+    7  cd DevOps-Linux/
+    8  git checkout aulas-linux-devops
+    9  git branch
+   10  cd aula-02
+   11  mkdir aula-02
+   12  cd aula-02/
+   13  mkdir OCI-Lab01
+   14  cd OCI-Lab01/
+   15  sudo yum install jdk
+   16  sudo dnf install java-21-openjdk -y
+   17  java -version
+   18  javac -version
+   19  mkdir java
+   20  cd java
+   21  nano HelloWorld.java
+   22  sudo dnf install java-21-openjdk-devel -y
+   23  javac -version
+   24  sudo dnf install nano -y
+   25  nano HelloWorld.java
+   26  javac HelloWorld.java
+   27  java HelloWorld
+   28  history > comandos-usados.txt
+   29  ls -la
+   30  rm comandos-usados.txt 
+   31  ls -la
+   32  cd ..
+   33  history > comandos-usados.txt
