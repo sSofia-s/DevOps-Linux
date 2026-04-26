@@ -1,0 +1,294 @@
+    1  vncserver -kill :1
+    2  vncserver :1
+    3  vncserver -kill :1
+    4  vncserver :1
+    5  ls -la
+    6  cd DevOps-Linux/
+    7  ls -la
+    8  cd Aulas-Oracle-OCI/
+    9  ls -la
+   10  cd OCI-Lab03
+   11  ls -la
+   12  sudo apt install apache2
+   13  sudo reboot
+   14  cd DevOps-Linux/
+   15  cd Aulas-Oracle-OCI/
+   16  OCI-Lab03
+   17  cd OCI-Lab03
+   18  sudo apt install apache2
+   19  sudo systemctl status apache2
+   20  sudo fallocate -l 2G /swapfile
+   21  sudo chmod 600 /swapfile
+   22  sudo mkswap /swapfile
+   23  sudo swapon /swapfile
+   24  free -h
+   25  vncserver -kill :1
+   26  vncserver :1
+   27  sudo apt install apache2
+   28  JOSEPC@DESKTOP-ACEIJ0O MINGW64 ~
+   29  $ ssh -i "/c/Users/JOSEPC/.ssh/id_rsa" -L 5901:localhost:5901 ubuntu@168.138.151.132
+   30  Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.15.0-1081-oracle x86_64)
+   31  This system has been minimized by removing packages and content that are
+   32  not required on a system that users do not log into.
+   33  To restore this content, you can run the 'unminimize' command.
+   34  Expanded Security Maintenance for Infrastructure is not enabled.
+   35  20 updates can be applied immediately.
+   36  16 of these updates are standard security updates.
+   37  To see these additional updates run: apt list --upgradable
+   38  159 additional security updates can be applied with ESM Infra.
+   39  Learn more about enabling ESM Infra service for Ubuntu 20.04 at
+   40  https://ubuntu.com/20-04
+   41  New release '22.04.5 LTS' available.
+   42  Run 'do-release-upgrade' to upgrade to it.
+   43  Last login: Sat Apr 25 21:54:31 2026 from 177.138.136.96
+   44  ubuntu@vnic-2-0:~$ sudo fallocate -l 2G /swapfile
+   45  ubuntu@vnic-2-0:~$ sudo chmod 600 /swapfile
+   46  ubuntu@vnic-2-0:~$ sudo mkswap /swapfile
+   47  Setting up swapspace version 1, size = 2 GiB (2147479552 bytes)
+   48  no label, UUID=fefe8246-ed52-4a85-8cf5-39716426a04c
+   49  ubuntu@vnic-2-0:~$ sudo swapon /swapfile
+   50  ubuntu@vnic-2-0:~$ free -h
+   51  Mem:          952Mi       291Mi        84Mi       9.0Mi       576Mi       506Mi
+   52  Swap:         2.0Gi          0B       2.0Gi
+   53  ubuntu@vnic-2-0:~$ vncserver -kill :1
+   54  Killing Xtightvnc process ID 1690
+   55  kill: (1690): No such process
+   56  ubuntu@vnic-2-0:~$ vncserver :1
+   57  New 'X' desktop is vnic-2-0:1
+   58  Starting applications specified in /home/ubuntu/.vnc/xstartup
+   59  Log file is /home/ubuntu/.vnc/vnic-2-0:1.log
+   60  ubuntu@vnic-2-0:~$ sudo apt install apache2
+   61  Reading package lists... Done
+   62  Building dependency tree
+   63  Reading state information... Done
+   64  apache2 is already the newest version (2.4.41-4ubuntu3.23).
+   65  0 upgraded, 0 newly installed, 0 to remove and 20 not upgraded.
+   66  ubuntu@vnic-2-0:~$
+   67  sudo systemctl status apache2
+   68  sudo utw app list
+   69  sudo ufw app list
+   70  sudo ufw app info "Apache Full"
+   71  sudo apt update
+   72  sudo apt install ufw -y
+   73  sudo ufw app list
+   74  sudo ufw app info "Apache Full"
+   75  sudo ufw allow in "Apache Full"
+   76  sudo apt-get install net-tools
+   77  sudo netstat -tulpn | grep LISTEN
+   78  sudo a2enmod ssl
+   79  sudo systemctl restart apache2
+   80  sudo netstat -tulpn | grep LISTEN
+   81  sudo iptables -I INPUT 5 -i ens3 -p tcp -m multiport --dports
+   82  80,443 -m state --state NEW,ESTABLISHED -j ACCEPT
+   83  ip a
+   84  sudo iptables -I INPUT 5 -i ens3 -p tcp -m multiport --dports 80,443 -m state --state NEW,ESTABLISHED -j ACCEPT
+   85  git status
+   86  cd DevOps-Linux/
+   87  git status
+   88  git branch
+   89  cd Aulas-Oracle-OCI/
+   90  cd OCI-Lab03
+   91  history > comandos-usados.txt
+   92  ls -la
+   93  cat comandos-usados.txt 
+   94  cd ..
+   95  git status
+   96  git add .
+   97  git status
+   98  git commit -m "feat: feito exercícios da Oracle Cloud Infrastructure - Lab 1 Compute VM - Create Oracle Linux Server."
+   99  git commit --amend -m "feat: feito exercícios da Oracle Cloud Infrastructure - Lab 3 Compute VM - Provision an Ubuntu Linux Server."
+  100  git push
+  101  vncserver -kill :1
+  102  vncserver :1
+  103  vncserver -kill :1
+  104  cd DevOps-Linux/
+  105  cd Aulas-Oracle-OCI/
+  106  mkdir OCI-Lab04
+  107  cd OCI-Lab04
+  108  sudo apt-get update
+  109  pwd
+  110  ls
+  111  mkdir Projects
+  112  ls
+  113  cd Projects
+  114  pwd
+  115* mv file4* 
+  116  mkdir Backup
+  117  cd Projects
+  118  mkdir Release
+  119  sudo apt-get install tree
+  120  tree
+  121  tree ~
+  122  rmdir Release
+  123  ls
+  124  mkdir Release
+  125  ls
+  126  cd ~
+  127  touch file1
+  128  touch file2 file3 file4
+  129  tree
+  130  cp file1 Projects/Release
+  131* cp file1 DevOps-Linux/Aulas-Oracle-OCI/OCI-Lab04/Projects/Releas
+  132  cp file1 DevOps-Linux/Aulas-Oracle-OCI/OCI-Lab04/Projects/Release/file1b
+  133  cp /home/opc/file1
+  134  cp /home/opc/file1 /home/opc/Projects/Release
+  135  cp ~/file1 ~/DevOps-Linux/Aulas-Oracle-OCI/OCI-Lab04/Projects/Release
+  136  cd DevOps-Linux/
+  137  cd Aulas-Oracle-OCI/
+  138  cd Oc
+  139  cd OCI-Lab04
+  140  ls -la
+  141  cd Projects/
+  142  cd Release/
+  143  cp ~/file1 .
+  144  cp ../../file1 .
+  145  cd ..
+  146  ls -la
+  147  cd ..
+  148  tre
+  149  tree
+  150  cd OCI-Lab04
+  151  cp ~/file1 .
+  152  cp ~/file2 .
+  153  cp ~/file3 .
+  154  cp ~/file4 .
+  155  cd ..
+  156  tree
+  157  cd OCI-Lab04
+  158  ls
+  159  ls -la
+  160  cd Projects/
+  161  ls -la
+  162  rmdir Release
+  163  rm Release
+  164  rm -r Release
+  165  rm --help
+  166  mkdir Release
+  167  cd ~
+  168  touch file4b file4c
+  169  tree ~
+  170  ls file4?
+  171  ls ?ile1
+  172  ls file*
+  173  ls *ile*
+  174  mv file4* Backup
+  175  mv file4* ~/DevOps-Linux/Aulas-Oracle-OCI/OCI-Lab04/Backup
+  176  mv file4* ~/DevOps-Linux/Aulas-Oracle-OCI/OCI-Lab04/Projects/
+  177* mv file* ~/DevOps-Linux/Aulas-Oracle-OCI/OCI-Lab04/jects
+  178  cd ..
+  179  cd ~
+  180  cd DevOps-Linux/Aulas-Oracle-OCI/OCI-Lab04/Backup
+  181  ls -la
+  182  cd ..
+  183  cd Projects/
+  184  ls -la
+  185  mv file1 file1a
+  186  ls -la
+  187  cd ..
+  188  mkdir Section-16-Exercises
+  189  cd Section-16-Exercises/
+  190  mkdir Business
+  191  cd Business/
+  192  mkdir Payrol Accounts Staff
+  193  ls -la
+  194  touch payrol1 payrol2 payrollastyear stafflist accountsyear1 accountsyear2
+  195  ls -la
+  196  mv payrol* /Payrol
+  197  mv payrol* Payrol
+  198  cd Payrol/
+  199  ls -la
+  200  mkdir Backup
+  201  mv payrollas* Backup/
+  202  cd Backup/
+  203  ls -la
+  204  cd ..
+  205  mv staff* Staff/
+  206  cd Staff/
+  207  ls -la
+  208  cd ..
+  209  mv acco* Accounts/
+  210  cd Accounts/
+  211  ls -la
+  212  cd ..
+  213  cd Payrol/
+  214  cd Backup/
+  215  mv payrollastyear payrollbackup
+  216  ls -la
+  217  cd ..
+  218  ls -la
+  219  tree
+  220  cd Payrol/
+  221* 
+  222  mv notes.txt ../Staff/
+  223  cd ..
+  224  tree
+  225  cd Staff/
+  226  cp notes.txt ../Payrol/
+  227  cd ..
+  228  tree
+  229  cd ..
+  230  tree
+  231  ls -l
+  232  cd Business/
+  233  cd Payrol/
+  234  ls -l
+  235  sudo apt-get install bsdmainutils
+  236  ls -la
+  237  cd OCI-Lab04
+  238  cd ..
+  239  cd Section-16-Exercises/
+  240  man cal
+  241  man –k password
+  242  cal > test
+  243  ls -la
+  244  rm test
+  245  ls -la
+  246  cal > test
+  247  cat test
+  248  ls /etc > test
+  249  test
+  250  more test
+  251  head -3 test
+  252  man ls | head -10
+  253  unminimize
+  254  cat test | tail -5
+  255  rm test
+  256  cd ..
+  257  cal > test
+  258  cat test
+  259  ls -l /etc > test
+  260  cat test | tr 'a-z' 'A-Z'
+  261  cat test | tr 'aeiou' '*'
+  262  grep root /etc/passwd
+  263  cat /etc/passwd | grep root
+  264  ps -d
+  265  sleep 10
+  266  sleep 100&
+  267  ps
+  268  sleep 1000&
+  269  kill <2935>
+  270  kill <2>
+  271  kill 2935
+  272  nano&
+  273  ps
+  274  kill 2937
+  275  ps
+  276  kill -9 2937
+  277  ps
+  278  nano&
+  279  fg
+  280  kill -9 2937
+  281  ps
+  282  cd ~
+  283  cd DevOps-Linux/
+  284  git status
+  285  cd Aulas-Oracle-OCI/
+  286  cd OCI-Lab04
+  287  git add.
+  288  git add . 
+  289  git status
+  290  cd ..
+  291  git add .
+  292  cd Aulas-Oracle-OCI/
+  293  cd OCI-Lab04
+  294  history > comandos-usados.txt
