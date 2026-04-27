@@ -1,0 +1,129 @@
+copy nul Dockerfile.mysql
+
+nano Dockerfile.mysql
+
+docker build -f Dockerfile.mysql -t mysql-dimdim .
+
+docker volume create mysql-dimdim-data
+
+docker network create dimdim-network
+
+docker volume create mysql-dimdim-data
+
+docker run --name mysql-dimdim -d 
+
+docker run --name mysql-dimdim -d \
+
+docker run --name mysql-dimdim -d --network dimdim-network -p 3306:3306 -v mysql-dimdim-data:/var/lib/mysql mysql-dimdim
+
+docker logs -f mysql-dimdim
+
+docker exec -i mysql-dimdim mysql -uuser-dimdim -p'senha-dimdim' db-dimdim -e "SELECT * FROM transacoes;"
+
+cd transacoes-api
+
+copy nul Dockerfile.api
+
+nano Dockerfile.api
+
+docker build -f Dockerfile.api -t api-dimdim .
+
+docker logs -f api-dimdim
+
+docker run --name api-dimdim -d --network dimdim-network -p 8080:8080 api-dimdim
+
+curl -X GET http://localhost:8080/api/transacoes
+
+curl -X POST http://localhost:8080/api/transacoes -H "Content-Type: application/json" -d '{"descricao": "Compra no supermercado", "valor": 150.75}'
+
+curl -X PUT http://localhost:8080/api/transacoes/6 -H "Content-Type: application/json" -d '{"descricao": "Compra no supermercado - ALTERADO", "valor": 150.76, "dataTransacao": "2024-06-18T00:00:00"}'
+
+curl -X DELETE http://localhost:8080/api/transacoes/6
+
+nano Dockerfile.api
+
+docker build -f Dockerfile.api -t api-dimdim .
+
+docker run --name api-dimdim -d --network dimdim-network -p 8080:8080 api-dimdim
+
+docker logs -f api-dimdim
+
+curl -X GET http://localhost:8080/api/transacoes
+
+curl -X POST http://localhost:8080/api/transacoes \
+-H "Content-Type: application/json" \
+-d '{
+  "descricao": "Compra no supermercado",
+  "valor": 150.75
+}'
+
+curl -X PUT http://localhost:8080/api/transacoes/6 \
+-H "Content-Type: application/json" \
+-d '{
+  "descricao": "Compra no supermercado - ALTERADO",
+  "valor": 150.76,
+  "dataTransacao": "2024-06-18T00:00:00"
+}'
+
+curl -X DELETE http://localhost:8080/api/transacoes/6
+
+curl -X POST http://localhost:8080/api/transacoes \
+-H "Content-Type: application/json" \
+-d '{
+  "descricao": "Compra no supermercado",
+  "valor": 150.75
+}'
+
+curl -X PUT http://localhost:8080/api/transacoes/6 \
+-H "Content-Type: application/json" \
+-d '{
+  "descricao": "Compra no supermercado - ALTERADO",
+  "valor": 150.76,
+  "dataTransacao": "2024-06-18T00:00:00"
+}'
+
+curl -X PUT http://localhost:8080/api/transacoes/6 \
+-H "Content-Type: application/json" \
+-d '{
+  "descricao": "Compra no supermercado - ALTERADO",
+  "valor": 150.76,
+  "dataTransacao": "2024-06-18T00:00:00"
+}'
+
+curl -X PUT http://localhost:8080/api/transacoes/7 \
+-H "Content-Type: application/json" \
+-d '{
+  "descricao": "Compra no supermercado - ALTERADO",
+  "valor": 150.76,
+  "dataTransacao": "2024-06-18T00:00:00"
+}'
+
+curl -X DELETE http://localhost:8080/api/transacoes/7
+
+cd api-transacoes
+
+cd ..
+
+cd api-transacoes
+
+docker build -f docker/Dockerfile -t api-transacoes .
+
+docker run --name api-transacoes -d --network dimdim-network -p 5000:8080 api-transacoes
+
+docker logs -f api-transacoes
+
+curl -X GET http://localhost:5000/api/transacoes
+
+curl -X GET http://localhost:5000/api/transacoes/1
+
+curl -X POST http://localhost:5000/api/transacoes -H "Content-Type: application/json" -d '{"descricao": "Compra no supermercado(.NET)", "valor": 150.75}'
+
+curl -X PUT http://localhost:5000/api/transacoes/8 -H "Content-Type: application/json" -d '{"id": 7, "descricao": "Compra no supermercado - ALTERADO", "valor": 150.76, "dataTransacao": "2024-06-18T00:00:00"}'
+
+curl -X PUT http://localhost:5000/api/transacoes/8 -H "Content-Type: application/json" -d '{"id": 7, "descricao":8"Compra no supermercado - ALTERADO", "valor": 150.76, "dataTransacao": "2024-06-18T00:00:00"}'
+
+curl -X PUT http://localhost:5000/api/transacoes/8 -H "Content-Type: application/json" -d '{"id": 8, "descricao": "Compra no supermercado - ALTERADO", "valor": 150.76, "dataTransacao": "2024-06-18T00:00:00"}'
+
+curl -X DELETE http://localhost:5000/api/transacoes/8
+
+docker exec -i mysql-dimdim mysql -uuser-dimdim -p'senha-dimdim' db-dimdim -e "SELECT * FROM transacoes;"
