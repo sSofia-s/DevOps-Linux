@@ -1,0 +1,18 @@
+docker volume create nginx-data
+docker run -d --name nginx-server -p 80:80 -v nginx-data:/usr/share/nginx/html nginx
+docker volume inspect nginx-data
+cd /var/lib/docker/volumes/nginx-data/_data
+sudo su
+cd /var/lib/docker/volumes/nginx-data/_data
+ls
+docker exec -it nginx-server /bin/sh
+cd /var/lib/docker/volumes/nginx-data/_data
+sudo su
+cd /var/lib/docker/volumes/nginx-data/_data
+ls
+docker cp index.html nginx-server:/usr/share/nginx/html/index.html
+vi index.html
+exit
+cd "Desafio Docker"
+docker system prune -a -f --volumes
+doskey /history > comandos-utilizados.txt
