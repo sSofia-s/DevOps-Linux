@@ -1,0 +1,168 @@
+az login
+
+az --version
+
+az account list -o table
+
+az account set --subscription "nome-da-subscrição"
+
+az account set --subscription "2tdspg-rm563829-sofia.fontes"
+
+az account show --query "{Sub:id, Nome:name}" -o jsonc
+
+az account list-locations -o table
+
+az account list-locations --query "[].name" -o tsv | sort
+
+az group create --name rg-dimdim-dev --location eastus
+
+az group show -n rg-dimdim-dev --query "{Name:name, Local:location, Tags:tags}"
+
+az group delete -n rg-dimdim-dev --yes --no-wait
+
+az vm image list --offer "server-focal" --publisher canonical --sku "20_04-lts" --all -o table
+
+az vm image list --all --output table
+
+az vm list-sizes --location eastus -o table
+
+az vm list-skus --location eastus --resource-type virtualMachines--size "Standard_B" -o table
+
+az group create --name rg-dimdim-dev --location eastus
+
+az vm create \
+
+--resource-group rg-dimdim-dev \
+
+--name vm-dimdim-app \
+
+--image Ubuntu2404 \
+
+--size Standard_B2s \
+
+--authentication-type password \
+
+--admin-username admlnx \
+
+--admin-password Fiap@2tdsvms \
+
+--vnet-name nnet-Linux \
+
+--nsg nsgsr-linux \
+
+--public-ip-address pip-linux \
+
+--tags "owner=DimDim" "purpose=Training"
+
+az vm create
+
+az vm create --resource-group rg-dimdim-dev --name vm-dimdim-app --image Ubuntu2204 --size 
+Standard_B2s --authentication-type password --admin...
+
+az vm create \
+
+--resource-group rg-dimdim-dev \
+
+--name vm-dimdim-app \
+
+--image Ubuntu2204 \
+
+--size Standard_B2s \
+
+--authentication-type password \
+
+--admin-username admlnx \
+
+--tags owner=DimDim purpose=Trainingaz vm create \
+
+--resource-group rg-dimdim-dev \
+
+--name vm-dimdim-app \
+
+--image Ubuntu2204 \
+
+--size Standard_B2s \
+
+--authentication-type password \
+
+--admin-username admlnx \
+
+--admin-password Fiap@2tdsvms \
+
+az vm create --resource-group rg-dimdim-dev --name vm-dimdim-app --image Ubuntu2204 --size Standard_B2s --authentication-type password --admin...
+
+az group delete --name rg-dimdim-dev --yes --no-wait
+
+az group create --name rg-dimdim-dev --location brazilsouth
+
+az vm create --resource-group rg-dimdim-dev --name vm-dimdim-app --image Ubuntu2404 --size Standard_B2s --authentication-type password --admin...
+
+az vm create --resource-group rg-dimdim-dev --name vm-dimdim-app --image Ubuntu2204 --size Standard_B2s --authentication-type password --admin...
+
+az account list-locations -o table
+
+az group delete --name rg-dimdim-dev --yes --no-wait
+
+az group create --name rg-dimdim-dev --location chilecentral
+
+az vm create --resource-group rg-dimdim-dev --name vm-dimdim-app --image Ubuntu2404 --size Standard_B2s --authentication-type password --admin...
+
+az vm create --resource-group rg-dimdim-dev --name vm-dimdim-app --image Ubuntu2204 --size Standard_B2s --authentication-type password --admin...
+
+az vm list-sizes --location chilecentral -o table
+
+az vm create --resource-group rg-dimdim-dev --name vm-dimdim-app --image Ubuntu2204 --size Standard_B1s --authentication-type password --admin...
+
+az vm create --resource-group rg-dimdim-dev --name vm-dimdim-app --image Ubuntu2204 --size Standard_B1s --authentication-type password --admin...
+
+az vm create --resource-group rg-dimdim-dev --name vm-dimdim-app --image Ubuntu2204 --size Standard_A1_v2 --authentication-type password --adm...
+
+az vm list-sizes --location canadacentral -o table
+
+az vm create --resource-group rg-dimdim-dev --name vm-dimdim-app --image Ubuntu2404 --size Standard_B2ts_v2 --authentication-type password --a...
+
+az vm open-port --resource-group rg-dimdim-dev --name vm-dimdim-app --port 80 --priority 1001
+
+az vm open-port --resource-group rg-dimdim-dev --name vm-dimdim-app --port 5000-5005 --priority 1002
+
+az storage account create --name dimdimstorage$RANDOM --resource-group rg-dimdim-dev --location eastus --sku Standard_LRS --kind StorageV2 --a...
+
+az storage account create \
+
+--name dimdimstorage$RANDOM \
+
+--resource-group rg-dimdim-dev \
+
+--location canadacentral \
+
+--sku Standard_LRS \
+
+--kind StorageV2 \
+
+az storage account create --name dimdimstorage1 --resource-group rg-dimdim-dev --location canadacentral --sku Standard_LRS --kind StorageV2 --...
+
+az monitor metrics list --resource $(az vm show -g rg-dimdim-dev -n vm-dimdim-app --query id -o tsv) --metric "Percentage CPU" --aggregation A...
+
+az monitor metrics alert create -n Alert-CPU-High -g rg-dimdim-dev --scopes $(az vm show -g rg-dimdim-dev -n vm-dimdim-app --query id -o tsv) ...
+
+az monitor metrics alert list -g rg-dimdim-dev -o table
+
+touch reconhecimento.sh
+
+nano reconhecimento.sh
+
+cat reconhecimento.sh
+
+chmod +x reconhecimento.sh
+
+./reconhecimento.sh > reconhecimento.log
+
+reconhecimento.log
+
+touch deploy-dimdim.sh
+
+chmod +x deploy-dimdim.sh
+
+./deploy-dimdim.sh > deploy-dimdim.log
+
+history > comandos-utilizados.txt
